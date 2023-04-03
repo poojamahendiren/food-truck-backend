@@ -29,19 +29,20 @@ router.post("/signup", async(req,res,next)=>{
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
     
-        const newUser = new User({
+        const newUser =await User.create({
           name: req.body.name,
           email: req.body.email,
           password: hashedPassword,
         });
     
-        await newUser.save((err,data)=>{
-            if(err){
-                return res.status(400).send({message: 'Error while adding new user. Please check the data'});
-            }
+        // await newUser.save((err,data)=>{
+        //     if(err){
+        //         return res.status(400).send({message: 'Error while adding new user. Please check the data'});
+        //     }
 
-        });
-         res.status(201).send({ message: "User has been added successfully." });
+        // });
+         res.status(201).json({ message: "User has been added successfully." });
+
     } catch (error) {
       res.status(500).send({
         message: 'Internal Server Error'
