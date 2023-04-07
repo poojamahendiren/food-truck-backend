@@ -23,7 +23,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/register",registerRouter);
 
-authentication
+//authentication
 app.use("/",  (req,res,next) => {
     const token = req.headers.accesstoken
     if(!token){
