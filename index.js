@@ -23,21 +23,21 @@ app.use(cors());
 app.use(express.json());
 app.use("/register",registerRouter);
 
-//authentication
-// app.use("/",  (req,res,next) => {
-//     const token = req.headers.accesstoken
-//     if(!token){
-//       return res.status(400).send({msessage:"Token not found"})
-//     }
-//     return jwt.verify(token,process.env.SECRET_KEY,(err,decoded) => {
-//         if(err){
-//           return next (createError({status:401,message:"InvalidToken"}));
-//         }
-//         req.user=decoded;
-//       return next();
-//       });
+authentication
+app.use("/",  (req,res,next) => {
+    const token = req.headers.accesstoken
+    if(!token){
+      return res.status(400).send({msessage:"Token not found"})
+    }
+    return jwt.verify(token,process.env.SECRET_KEY,(err,decoded) => {
+        if(err){
+          return next (createError({status:401,message:"InvalidToken"}));
+        }
+        req.user=decoded;
+      return next();
+      });
       
-//     })
+    })
     
   
   app.use("/users",userRouter);
