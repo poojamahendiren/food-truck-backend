@@ -8,6 +8,7 @@ router.get('/hello',(req,res) => {
 
 //create item
 router.post('/details',async (req,res,next)=>{
+  console.log(req.headers);
     const newItem = new Item({
         itemName: req.body.itemName,
         

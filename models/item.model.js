@@ -6,7 +6,7 @@ const itemSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        enum: ['Pizza', 'Tacos','Burger','Nachos' ]
+        //enum: ['Pizza', 'Tacos','Burger','Nachos' ]
       },
       quantity: {
         type: Number,
