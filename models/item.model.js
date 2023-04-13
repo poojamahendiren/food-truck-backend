@@ -2,24 +2,25 @@ const mongoose = require('mongoose');
 
 //Schema definition
 const itemSchema = new mongoose.Schema({
-    itemName: {
+    _id:[{
+  itemName: {
         type: String,
         required: true,
-        trim: true,
+        //trim: true,
         //enum: ['Pizza', 'Tacos','Burger','Nachos' ]
       },
       quantity: {
         type: Number,
         required: true,
-        trim: true
+        //trim: true
        
       },
       price: {
         type: Number,
         required: true,
-        trim: true
+        //trim: true
 
-      },
+      }}],
     });
 
 
