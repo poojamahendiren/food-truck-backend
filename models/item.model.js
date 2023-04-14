@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 //Schema definition
 const itemSchema = new mongoose.Schema({
-    _id:[{
+    
   itemName: {
         type: String,
         required: true,
-        //trim: true,
+        trim: true,
         //enum: ['Pizza', 'Tacos','Burger','Nachos' ]
       },
       quantity: {
@@ -20,10 +20,10 @@ const itemSchema = new mongoose.Schema({
         required: true,
         //trim: true
 
-      }}],
+      },
     });
 
-
+   
 //Model creation
 module.exports = mongoose.model('Item', itemSchema);
 
